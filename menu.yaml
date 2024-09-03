@@ -1,0 +1,20 @@
+SHELLCONFIG : config.ini
+
+## other environment variables if you want
+ENV :
+    TESTENV : testenv
+
+Db2 hadr and pacemaker setup :
+    NOTE : HADR and pacemaker
+
+    Prereq. packages installation : 1_prereq.sh
+    Db2 installation : 2_db2_install.sh 
+    create an instance user : 3_create_instance.sh  
+    HADR configuration : 4_hadr_conf.sh
+    Pacemaker configuration : 5_pacemaker.sh
+
+MISC tests :
+    NOTE : Future usage 
+
+    test1 : test1.sh
+    test2 : test2.sh
