@@ -37,6 +37,7 @@ setProfile(){
 swCmdChkAllHost "xterm"
 setProfile
 pyChk ## install python on the 1st host only. To run setup script, python is needed.   
+goChk
 
 disp_msglvl1 "Copying frequently used commands to /usr/local/bin"   
 for f in menu.py 

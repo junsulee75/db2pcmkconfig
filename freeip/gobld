@@ -1,0 +1,5 @@
+rm -f freeip*
+GOOS=darwin GOARCH=arm64 go build -o freeip_arm main.go
+GOOS=linux GOARCH=amd64 go build -o freeip_x86_64 main.go
+GOOS=linux GOARCH=ppc64le go build -o freeip_ppcle main.go
+ln -s freeip_x86_64 freeip  # will use for Linux x86 only for a while 

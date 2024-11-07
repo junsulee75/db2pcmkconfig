@@ -5,7 +5,7 @@ source config.ini # use /bin/bash for reading from the current directory
 source jscommon.sh
 
 
-DB2VER_INPUT=$1  
+DB2VER_INPUT=$1  # Not mandatory. If there is the parameter.     
 #DB2VER_TWO=${DBVER_INPUT:0:2}    # not working 
 #echo "|$DB2VER_INPUT|   |$DB2VER_TWO|"
 EXTRACT_PATH="server_dec"  # Db2 installation image extracted relative path  
@@ -79,11 +79,13 @@ extractImage(){
 installDB2(){
 	for HOST in $ALLHOST
 	do
-	
+		TSA_LEVEL=`grep tsa_level /root/$EXTRACT_PATH/db2/spec`  # TSA version in the installation image
+
+		# in pacemaker repo, most likely it won't take this logic, to share logic with tsa repo, let's keep it.   
 		if [ "$DB2VER_INPUT" == "1157" ] || [ "$DB2VER_INPUT" == "1158" ] || [ "$DB2VER_INPUT" == "1159" ] ; then 
 			echo "This is DB2 $DB2VER_INPUT installation"
 			if [ "$VERSION_ID" == "8.8" ] ; then  
-				echo "This is $ID $VERSION_ID . It's OK to install with TSA : $TSA_LEVEL "	
+				echo "This is $ID $VERSION_ID . It's OK to install with TSA : $TSA_LEVEL "	 # This may not be necessary
 				ssh $SSH_NO_BANNER $HOST "/root/$EXTRACT_PATH/db2_install -y -b $DB2_INSTALL_PATH -p $PKG_NAME -n"  # for single 
 			else
 				echo "Check the compatibility with DB2 $DB2VER_INPUT and $ID $VERSION_ID. Exiting ... "  

@@ -10,6 +10,8 @@
   - [collection](#collection)
     - [db2cm -dump](#db2cm--dump)
     - [Commands](#commands)
+  - [files](#files)
+    - [monitoring scripts](#monitoring-scripts)
   - [MISC](#misc)
     - [db2cm error (?)](#db2cm-error-)
     - [db2 code : db2cm.C](#db2-code--db2cmc)
@@ -47,6 +49,35 @@ db2pd -pdcollection index=corosync_conf
 # crm configure show
 $ db2pd -pdcollection index=crm_configure_show
 ```
+
+[content](#contents) 
+
+## files  
+
+### monitoring scripts 
+
+
+```
+INSTALL_PATH=/opt/ibm/db2/V11.5_mod8
+ls $INSTALL_PATH/ha/pcmk
+# file $INSTALL_PATH/ha/pcmk/*
+/opt/ibm/db2/V11.5_mod8/ha/pcmk/db2ethmon:    POSIX shell script, UTF-8 Unicode text executable, with very long lines
+/opt/ibm/db2/V11.5_mod8/ha/pcmk/db2fs:        POSIX shell script, ASCII text executable
+/opt/ibm/db2/V11.5_mod8/ha/pcmk/db2hadr:      POSIX shell script, ASCII text executable
+/opt/ibm/db2/V11.5_mod8/ha/pcmk/db2inst:      POSIX shell script, ASCII text executable, with very long lines
+/opt/ibm/db2/V11.5_mod8/ha/pcmk/db2partition: Bourne-Again shell script, ASCII text executable
+```
+
+The files are copied into the path.   
+
+```
+# ls /usr/lib/ocf/resource.d/heartbeat/db2*
+/usr/lib/ocf/resource.d/heartbeat/db2        /usr/lib/ocf/resource.d/heartbeat/db2fs    /usr/lib/ocf/resource.d/heartbeat/db2inst
+/usr/lib/ocf/resource.d/heartbeat/db2ethmon  /usr/lib/ocf/resource.d/heartbeat/db2hadr  /usr/lib/ocf/resource.d/heartbeat/db2partition
+```
+
+[content](#contents) 
+
 
 ## MISC  
 ### db2cm error (?)     

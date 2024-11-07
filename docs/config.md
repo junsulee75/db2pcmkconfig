@@ -1,5 +1,8 @@
 # Configuration outputs    
 
+## Files  
+
+Db2 resource agent scripts are located at /usr/lib/ocf/resource.d/heartbeat    
 
 ## DBM CFG
 ```

@@ -43,6 +43,31 @@ systemctl start pacemaker
 systemctl start corosync
 systemctl start corosync-qdevice
 ```
+
+Pacemaker consists of 7 deamons below.   
+
+```
+[root@jspcmk1 pcmk]# systemctl status pacemaker
+● pacemaker.service - Pacemaker High Availability Cluster Manager
+   Loaded: loaded (/usr/lib/systemd/system/pacemaker.service; enabled; vendor preset: disabled)
+   Active: active (running) since Sun 2024-09-22 18:18:13 PDT; 1 weeks 3 days ago
+     Docs: man:pacemakerd
+           https://clusterlabs.org/pacemaker/doc/
+  Process: 3162771 ExecStartPre=/usr/bin/killall -TERM pacemaker-attrd pacemaker-based pacemaker-controld pacemaker-execd pacemaker-fenced pacemaker-schedulerd (code=exited, status=1/FAILURE)
+  Process: 3162769 ExecStartPre=/bin/sleep 2 (code=exited, status=0/SUCCESS)
+ Main PID: 3162773 (pacemakerd)
+    Tasks: 7
+   Memory: 79.0M
+   CGroup: /system.slice/pacemaker.service
+           ├─3162773 /usr/sbin/pacemakerd -f
+           ├─3162775 /usr/libexec/pacemaker/pacemaker-based
+           ├─3162776 /usr/libexec/pacemaker/pacemaker-fenced
+           ├─3162777 /usr/libexec/pacemaker/pacemaker-execd
+           ├─3162778 /usr/libexec/pacemaker/pacemaker-attrd
+           ├─3162779 /usr/libexec/pacemaker/pacemaker-schedulerd
+           └─3162780 /usr/libexec/pacemaker/pacemaker-controld
+```
+
 - [Go to content](#contents)
 
 
