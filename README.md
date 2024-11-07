@@ -42,14 +42,10 @@ If you want to install other versions, edit config.ini
  
 > IBMers can use internal fyre [quickburn](https://fyre.svl.ibm.com/quick).      
 
-2. Download the script.    
+2. Download the script or clone this repository to the 1st host by root user         
 
-Log into the 1st host and download the scripts   
-
-By root user
 ```
-git clone https://<ibm github user id>:<ibm github token>@github.ibm.com/junsulee/hadr_pacemaker_on_fyre
-# example : git clone https://junsulee:ghp_XXXXXX@github.ibm.com/junsulee/hadr_pacemaker_on_fyre
+git clone https://github.com/junsulee75/db2pcmkconfig
 ```
 
 3. Edit the following line with the your hostnames and preferred VIP on `config.ini` file.    
