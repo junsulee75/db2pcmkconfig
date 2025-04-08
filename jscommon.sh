@@ -26,7 +26,7 @@ if [[ -f /etc/os-release ]]; then   ## make sure to run with bash. Otherwise, wi
     os=$(grep '^ID=' /etc/os-release | awk -F= '{print $2}' | tr -d '"')    # remove the quote " if there is
     version_id=$(grep '^VERSION_ID=' /etc/os-release | awk -F= '{print $2}' | tr -d '"')    # remove the quote " if there is
     
-    if [[ "$os" == "rhel" || "$os" == "fedora" || "$os" == "centos" ]]; then
+    if [[ "$os" == "rhel" || "$os" == "fedora" || "$os" == "centos" || "$os" == "rocky" ]]; then
         pkgmgr="yum"
     elif [[ "$os" == "ubuntu" || "$os" == "debian" ]]; then
         pkgmgr="apt"
